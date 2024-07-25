@@ -173,34 +173,38 @@ int liczba;
 WriteLine("Podaj dlugosc boku");
 Int32.TryParse(ReadLine(), out liczba);
 
+string[,] tab = new string[2*liczba-1, 2*liczba-1];
+
 if (liczba == 1)
     WriteLine("*");
 if (liczba == 2)
 {
-    WriteLine("*");
+    WriteLine(" * ");
     WriteLine("* *");
-    WriteLine("*");
+    WriteLine(" * ");
 }
 else
 {
-    for (int i = 0; i < liczba; i++)
+    liczba = liczba * 2;
+    for (int i = 0; i < liczba; i=i+2)
     {
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j < liczba; j++)
         {
-            Write("* * ");
+            if (i >= liczba - 1 - j && i <= liczba - 1 + j)
+                Write("* ");
+            else
+                Write(" ");
         }
         WriteLine();
     }
-    for (int i = 0; i < liczba+1; i++)
+    for (int i = liczba-3; i > 0; i = i - 2)
     {
-        Write("* ");
-    }
-    WriteLine();
-    for (int i = liczba; i != 0; i--)
-    {
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j < liczba; j++)
         {
-            Write("* * ");
+            if (i > liczba - 1 - j && i < liczba - 1 + j)
+                Write("* ");
+            else
+                Write(" ");
         }
         WriteLine();
     }
@@ -218,14 +222,42 @@ Rezultat
 Gfedcba
 */
 
+string napis;
+WriteLine("Podaj napis");
+napis = ReadLine();
+
+WriteLine(napis.Reverse());
+ReadKey();
+
 // Zadanie 9
 
 /*
 9. Napisz program, który zamieni liczbę dziesiętną na liczbę binarną.
 */
+static string DecimalToBinary(int liczba)
+{
+    if (liczba == 0) return "0";
+
+    string binary = string.Empty;
+    while (liczba > 0)
+    {
+        binary = (liczba % 2) + binary;
+        liczba /= 2;
+    }
+
+    return binary;
+}
+
+int liczba_dz;
+WriteLine("Podaj liczbe");
+Int32.TryParse(ReadLine(), out liczba_dz);
+
+WriteLine(DecimalToBinary(liczba_dz));
+ReadKey();
 
 // Zadanie 10
 
 /*
 10. Napisz program, który znajdzie najmniejszą wspólną wielokrotność dla zadanych 2 liczb.
 */
+
