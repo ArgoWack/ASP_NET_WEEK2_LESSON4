@@ -68,9 +68,9 @@ double szerokosc;
 double dlugosc;
 double przekatna;
 
-WriteLine("Podaj imie wiek");
+WriteLine("Podaj szerokosc");
 double.TryParse(ReadLine(), out szerokosc);
-WriteLine("Podaj imie wiek");
+WriteLine("Podaj dlugosc");
 double.TryParse(ReadLine(), out dlugosc);
 
 przekatna = Math.Sqrt(Math.Pow(szerokosc, 2) + Math.Pow(dlugosc, 2));

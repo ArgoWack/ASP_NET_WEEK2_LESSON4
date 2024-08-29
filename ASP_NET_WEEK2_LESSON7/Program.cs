@@ -206,7 +206,7 @@ a weź wyprowadzam się na Alaskę.
 
 int temperatura;
 
-WriteLine("Podaj wynik matury z matematyki");
+WriteLine("Podaj temperature");
 Int32.TryParse(ReadLine(), out temperatura);
 
 if(temperatura<0)
@@ -294,7 +294,7 @@ string Ocena = ocena switch
     _ => "Bledne dane"
 };
 
-WriteLine("Ocena to: "+ ocena);
+WriteLine("Ocena to: "+ Ocena);
 ReadKey();
 
 // Zadanie 12

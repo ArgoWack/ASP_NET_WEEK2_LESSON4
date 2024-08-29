@@ -83,7 +83,10 @@ static int Fibbonaci(int liczba)
         return Fibbonaci(liczba - 1) + Fibbonaci(liczba - 2);
     }
 }
-WriteLine(Fibbonaci(10));
+for (int i=0;i<10;i++)
+{
+    WriteLine(Fibbonaci(i));
+}
 ReadKey();
 
 // Zadanie 4
@@ -222,11 +225,12 @@ Rezultat
 Gfedcba
 */
 
-string napis;
-WriteLine("Podaj napis");
-napis = ReadLine();
+WriteLine("Podaj napis:");
+string napis = ReadLine();
 
-WriteLine(napis.Reverse());
+string odwróconyNapis = new string(napis.Reverse().ToArray());
+
+WriteLine(odwróconyNapis);
 ReadKey();
 
 // Zadanie 9
@@ -261,3 +265,24 @@ ReadKey();
 10. Napisz program, który znajdzie najmniejszą wspólną wielokrotność dla zadanych 2 liczb.
 */
 
+WriteLine("Podaj pierwszą liczbę:");
+int liczba1 = int.Parse(ReadLine());
+
+WriteLine("Podaj drugą liczbę:");
+int liczba2 = int.Parse(ReadLine());
+
+int nwd = ZnajdzNWD(liczba1, liczba2);
+int nww = Math.Abs(liczba1 * liczba2) / nwd;
+
+WriteLine($"Najmniejsza wspólna wielokrotność dla liczb {liczba1} i {liczba2} to: {nww}");
+
+static int ZnajdzNWD(int a, int b)
+{
+    while (b != 0)
+    {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
